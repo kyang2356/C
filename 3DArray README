@@ -1,0 +1,129 @@
+The goal of the project will be to use a 3 dimensional array to store data that can be used to calculate totals in multi-dimensions.
+
+Program Description:
+	This program utilizes a 3 dimensional array that stores data based on payments in a year. The header file 'datfile.h' contains 
+  payment data contained in a 3 dimensional array. The data is used to calculate totals in multi-dimensions. First, the data is 
+  retrieved by the program. The user will be provided a MENU with four selections that will calculate and return the total. Each 
+  selection is set to a specific number (1 - 4), which the user will enter. The functions within the program will calculate the 
+  total based on the specific command input by the user. 
+
+
+Usage Statement:
+	[s]: selection	
+
+	$ gcc labone.c
+	
+	OUTPUT: 
+		MENU
+		------
+			1. Total for the entire year
+			2. Weekday totals for the year
+			3. Lane totals for the year
+			4. Exit
+		Enter Selection: [s]
+
+Data Structure Definition:
+
+	float cashIN[12][7][10];
+
+	A 3 dimensional array. [12] equates to the 12 months within the year. cashIN stores 12 arrays. Each 
+	array contains one 2-dimensional array with 7 rows and 10 columns. [7] equates to the 7 days 
+	of the week. [10] equates to the 10 cash registers of payment. Figure 1.1 provides a rough outline of a 
+	3 dimensional array called 'number'. It is an array that contains 3 two-dimensional arrays. Each two-dimensional
+	array has 3 rows and 3 columns. 
+
+	Figure 1.1:  Ex. 3 dimensional array 
+	
+	int number[3][3][3] = 
+	{{{1,2,3},	
+	  {4,5,6},
+	  {7,8,9}},	
+	 {{10,11,12},
+	  {13,14,15},
+	  {16,17,18}},
+	 {{19,20,21},
+	  {22,23,24},
+	  {25,26,27}}};	//end of 3-dimensional array initialization
+	 	
+
+
+Function Definitions:
+
+	sumTotal():
+		input: const float[][7][10];
+
+		output type: float
+
+		Description:
+			The sumTotal() function will sum the payments in all three dimensions.
+		It will take as input, a 3 dimensional array. A float variable initialized to 0 will be created to store the total.
+		It will utilize 3 nested 'for loops' to iterate through each array contained within the 
+		input array. The first outer 'for loop' will interate through each of the 12 arrays starting at 
+		index 0 and ending before it reaches the 12th repetition. The second inner 'for loop' will iterate through 
+		the 7 rows of each array also starting at index 0 and ending before it reaches the 7th 
+		repetition. The 3rd and inner most 'for loop' will iterate through the 10 columns of each 
+		array also starting at index 0 and ending before it reach the 10th iteration. 
+
+		float sumTotal(const float[][7][10]){
+			float total; //store output
+			
+			for(int i = 0; i< 12; i++){  //iterate through the 3 dimensional array
+				for(int j = 0; j < 7; j++){	//iteration through days of the week
+					for(int k = 0; k< 10; k++){	//iteration through each cash register
+						
+						>>Code Calculation for total<<
+            
+					}
+				}
+			}
+		}      
+
+	sumWeekday():
+		input: const float[][7][10];
+
+		output type: float 
+
+		Description:
+			sumWeekday() will sum the weekdays in the 2-dimensions. It will sum the totals for the weekdays from rows 1 to 5.
+		Functionality of sumWeekday() will be the same as sumTotal(). A blank float variable initialized to zero will be created
+		to store the output total and 3 'for loops' to iterate through the input array. Each 'for loop' will begin at an index of zero.
+		The first loop to iterate through the 3-dimensional array. The second loop will iterate through the first five rows(weekdays) for each 			2-dimensional array stored in the output. The third loop will iterate through the 10 columns for each of the five rows to gather cash 			data for sum. All loops will start at an index of 0. For each iteration, the output variable will be summed with itself and the new 			cash registers for each weekday.  
+
+		float sumWeekday(const float[][7][10]){
+			float total; //store output
+
+	    		for(int i = 0; i< 12; i++){  //iteration through 3-dimensional input array
+					for(int j = 0; j < 5; j++){	//iteration through weekdays
+						for(int k = 0; k < 10; k++){	//iteration through each cash register
+				
+							>>Code to sum weekday cash register<<
+						}
+					}
+			}
+		}
+
+	sumLane():
+		input: const float a[][7][10], int n;
+
+		output type: float
+
+		Description:
+			sumLane() will sum a specific lane/row number in 3 dimensions. Users will input a specific lane number 'n'.
+		A blank float variable will created to store the output. 2 'for loops' will be utilized. The first loop starting at index 0, 
+		will iterate through the 3 dimensional array. The 2nd loop also starting at an index of zero will iterate through the 10 cash 			registers. A 3rd loop to iterate through the week will not be necessary. 
+
+		For each iteration, the output variable will be summed with itself and each cash register for the specific lane(day of the week).
+		Regarding the calculation, to retrieve the correct lane number, 'n - 1' will be utilized to calculate the specific day of the week.   
+
+		float sumLane(const float a[][7][10], int n){
+			float lanetot; //store output
+
+	    		for(int i = 0; i< 12; i++){  //iteration through 3-dimensional input array
+					for(int k = 0; k< 10; k++){	//iteration through each cash register
+						
+						lanetot+= a[i][n-1][k]; 
+						>>Code to sum cash registers for specific day of the week<<
+						
+					}
+			}
+		}
