@@ -1,8 +1,8 @@
-# This repository contain programming course work using C
+ This repository contain programming course work using C
 
-# This repository is organized through branches
+ This repository is organized through branches
 
-# This repository will be updated
+ This repository will be updated
 
-# Current Branches
+ Current Branches
   1. 
