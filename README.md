@@ -5,4 +5,4 @@
  This repository will be updated
 
  Current Branches
-  1. 
+  1. Calculate sum using 3d array
